@@ -3,161 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница Нуркыз</title>
+    <title>Мои роботы - Нуркыз</title>
     <style>
+        /* Общий стиль страницы */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-align: center;
-            padding: 40px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 30px auto;
-        }
-        .video-item {
-            background: white;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Привет, это Нуркыз!</h1>
-    <p>Посмотри мои видео из Scratch:</p>
-
-    <div class="video-grid">
-        <div class="video-item">
-            <video controls>
-                <source src="scratch.mp4" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <p>Игра "Камень, ножницы, бумага"</p>
-        </div>
- 
-        <div class="video-item">
-            <video controls>
-                <source src="video2.mp4" type="video/mp4">
-            </video>
-            <p>Видео 2</p>
-        </div>
-
-        <div class="video-item">
-            <video controls>
-                <source src="video3.mp4" type="video/mp4">
-            </video>
-            <p>Видео 3</p>
-        </div>
-
-        <div class="video-item">
-            <video controls>
-                <source src="video4.mp4" type="video/mp4">
-            </video>
-            <p>Видео 4</p>
-        </div>
-    </div>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Привет, это Нуркыз</title>
-    <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #e3f2fd;
-            text-align: center;
-            color: #333;
             margin: 0;
             padding: 20px;
         }
+
+        /* Красивый заголовок */
+        .header {
+            padding: 40px 20px;
+        }
         h1 {
-            color: #1565c0;
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
+        h2 {
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 10px;
         }
-        .video-grid {
+        .info {
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-top: 15px;
+        }
+
+        /* Сетка для видео */
+        .video-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        .video-card {
-            background: white;
+
+        /* Карточки видео */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
+            color: #333;
         }
-        .video-card:hover {
-            transform: scale(1.05);
+        .card:hover {
+            transform: translateY(-10px);
         }
         video {
             width: 100%;
-            border-radius: 15px;
-            border: 2px solid #bbdefb;
+            display: block;
         }
-        p {
-            font-size: 1.2em;
+        .card-text {
+            padding: 15px;
             font-weight: bold;
-            margin-top: 10px;
+            font-size: 1.1em;
+            color: #4b6cb7;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Привет, это Нуркыз! 👋</h1>
-        <p>Добро пожаловать на мою страницу с проектами</p>
+    <div class="header">
+        <h1>Мои роботы</h1>
+        <h2 style="font-family: 'Georgia', serif; font-style: italic;">Рахматилдаева Нуркыз</h2>
+        <div class="info">8 класс | Работы на Scratch</div>
+    </div>
 
-        <div class="video-grid">
-            <div class="video-card">
-                <video controls>
-                    <source src="scratch.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-                <p>Проект №1: Scratch</p>
-            </div>
+    <div class="video-container">
+        <div class="card">
+            <video controls>
+                <source src="scratch.mp4" type="video/mp4">
+            </video>
+            <div class="card-text">Проект: Камень, ножницы, бумага</div>
+        </div>
 
-            <div class="video-card">
-                <video controls>
-                    <source src="video2.mp4" type="video/mp4">
-                </video>
-                <p>Проект №2</p>
-            </div>
+        <div class="card">
+            <video controls>
+                <source src="scratch 0.1.webm" type="video/webm">
+            </video>
+            <div class="card-text">Проект: Прогулка у моря</div>
+        </div>
 
-            <div class="video-card">
-                <video controls>
-                    <source src="video3.mp4" type="video/mp4">
-                </video>
-                <p>Проект №3</p>
-            </div>
+        <div class="card">
+            <video controls>
+                <source src="scratch 0.2.webm" type="video/webm">
+            </video>
+            <div class="card-text">Проект: Викторина Манхва</div>
+        </div>
 
-            <div class="video-card">
-                <video controls>
-                    <source src="video4.mp4" type="video/mp4">
-                </video>
-                <p>Проект №4</p>
-            </div>
+        <div class="card">
+            <video controls>
+                <source src="scratch 0.3.webm" type="video/webm">
+            </video>
+            <div class="card-text">Проект: Машины в городе</div>
         </div>
     </div>
 
-</body>
-</html>
+    <footer style="margin-top: 50px; opacity: 0.7; padding-bottom: 20px;">
+        © 2024 Создано Нуркыз
+    </footer>
+
 </body>
 </html>
