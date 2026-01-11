@@ -68,6 +68,96 @@
             <p>Видео 4</p>
         </div>
     </div>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привет, это Нуркыз</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e3f2fd;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #1565c0;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+        video {
+            width: 100%;
+            border-radius: 15px;
+            border: 2px solid #bbdefb;
+        }
+        p {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <h1>Привет, это Нуркыз! 👋</h1>
+        <p>Добро пожаловать на мою страницу с проектами</p>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls>
+                    <source src="scratch.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <p>Проект №1: Scratch</p>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                </video>
+                <p>Проект №2</p>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                </video>
+                <p>Проект №3</p>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="video4.mp4" type="video/mp4">
+                </video>
+                <p>Проект №4</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>
