@@ -3,116 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои роботы - Нуркыз</title>
+    <title>Портфолио - Рахматилдаева Нуркыз</title>
     <style>
-        /* Общий стиль страницы */
+        /* Основные стили */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
+            background-color: #f0f2f5;
+            color: #333;
             margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Красивый шрифт для имени */
+        .name {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .info {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 20px;
         }
 
-        /* Красивый заголовок */
-        .header {
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: 3.5em;
-            margin: 0;
-            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
-        }
         h2 {
-            font-weight: 300;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-        .info {
-            font-size: 1.2em;
-            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 2px solid #a777e3;
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 30px;
-            margin-top: 15px;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
         }
 
         /* Сетка для видео */
-        .video-container {
+        .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        /* Карточки видео */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            color: #333;
         }
-        .card:hover {
-            transform: translateY(-10px);
+
+        .video-card:hover {
+            transform: translateY(-5px);
         }
+
         video {
             width: 100%;
-            display: block;
+            border-radius: 10px;
+            background-color: #000;
         }
-        .card-text {
-            padding: 15px;
+
+        .video-title {
+            margin-top: 15px;
             font-weight: bold;
-            font-size: 1.1em;
-            color: #4b6cb7;
+            color: #555;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Мои роботы</h1>
-        <h2 style="font-family: 'Georgia', serif; font-style: italic;">Рахматилдаева Нуркыз</h2>
-        <div class="info">8 класс | Работы на Scratch</div>
+    <header>
+        <h1>Мои работы</h1>
+        <span class="name">Рахматилдаева Нуркыз</span>
+        <div class="info">№67 школа, 8 класс</div>
+    </header>
+
+    <div class="container">
+        <h2>Работы на Scratch</h2>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls>
+                    <source src="scratch.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <div class="video-title">Игра "Камень-ножницы-бумага"</div>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="scratch 0.1.webm" type="video/webm">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <div class="video-title">Анимация со спрайтами</div>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="scratch 0.2.webm" type="video/webm">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <div class="video-title">Викторина по манхве</div>
+            </div>
+
+            <div class="video-card">
+                <video controls>
+                    <source src="scratch 0.3.webm" type="video/webm">
+                    Ва_ браузер не поддерживает видео.
+                </video>
+                <div class="video-title">Движение машин по городу</div>
+            </div>
+        </div>
     </div>
 
-    <div class="video-container">
-        <div class="card">
-            <video controls>
-                <source src="scratch.mp4" type="video/mp4">
-            </video>
-            <div class="card-text">Проект: Камень, ножницы, бумага</div>
-        </div>
-
-        <div class="card">
-            <video controls>
-                <source src="scratch 0.1.webm" type="video/webm">
-            </video>
-            <div class="card-text">Проект: Прогулка у моря</div>
-        </div>
-
-        <div class="card">
-            <video controls>
-                <source src="scratch 0.2.webm" type="video/webm">
-            </video>
-            <div class="card-text">Проект: Викторина Манхва</div>
-        </div>
-
-        <div class="card">
-            <video controls>
-                <source src="scratch 0.3.webm" type="video/webm">
-            </video>
-            <div class="card-text">Проект: Машины в городе</div>
-        </div>
-    </div>
-
-    <footer style="margin-top: 50px; opacity: 0.7; padding-bottom: 20px;">
-        © 2024 Создано Нуркыз
+    <footer>
+        &copy; 2026 Портфолио Нуркыз
     </footer>
 
 </body>
