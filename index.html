@@ -3,157 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои Роботы - Рахматилдаева Нуркыз</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <title>Мои роботы - Рахматилдаева Нуркыз</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
+        :root {
+            --primary-color: #6200ea;
+            --accent-color: #03dac6;
+            --bg-color: #f5f5f7;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%);
-            color: #333;
-            text-align: center;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            text-align: center;
         }
 
-        /* Шапка с именем и заголовком */
-        .header {
-            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+        header {
+            background: linear-gradient(135deg, #6200ea, #d500f9);
             color: white;
-            padding: 60px 20px;
-            border-bottom-left-radius: 80px;
-            border-bottom-right-radius: 80px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5em; /* Очень крупный заголовок */
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-            letter-spacing: 2px;
-            font-style: italic;
-        }
-        .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em; /* Крупное имя */
-            font-weight: 700;
-            margin-top: 5px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        .class-info {
-            font-size: 1.6em; /* Крупный класс и описание */
-            opacity: 0.9;
-            margin-top: 15px;
-            padding: 8px 25px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            display: inline-block;
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* Сетка для видео */
-        .video-grid {
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .student-info {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1300px;
-            margin: 60px auto;
-            padding: 0 30px;
+            gap: 30px;
+            padding: 20px;
         }
 
-        /* Карточка видео */
-        .video-card {
+        .card {
             background: white;
-            border-radius: 25px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid #e0e0e0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        .video-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+
+        .card:hover {
+            transform: translateY(-10px);
         }
+
         video {
             width: 100%;
-            height: 200px; /* Фиксированная высота для всех видео */
-            object-fit: cover; /* Обрезает видео, чтобы оно вписалось в размер */
-            display: block;
-            border-bottom: 5px solid #2575fc;
-        }
-        .video-title {
-            padding: 25px 15px;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #333;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            height: auto;
+            border-bottom: 3px solid var(--accent-color);
         }
 
-        /* Футер */
+        .card-title {
+            padding: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
         footer {
-            margin-top: 80px;
-            padding: 40px 20px;
+            margin-top: 50px;
+            padding: 20px;
             background: #333;
-            color: #eee;
-            font-size: 1.1em;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Мои Роботы</h1>
-        <div class="name">Рахматилдаева Нуркыз</div>
-        <div class="class-info">8 класс | Работы на Scratch</div>
+<header>
+    <h1>Рахматилдаева Нуркыз</h1>
+    <div class="student-info">8 класс | Работы на Scratch</div>
+    <h2 style="margin-top: 20px;">Мои роботы</h2>
+</header>
+
+<div class="container">
+    <div class="card">
+        <video controls>
+            <source src="scratch 0.1.webm" type="video/webm">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <div class="card-title">Проект: Scratch 0.1</div>
     </div>
 
-    <div class="video-grid">
-        <div class="video-card">
-            <video controls>
-                <source src="scratch.mp4" type="video/mp4">
-            </video>
-            <div class="video-title">Игра: Камень, ножницы, бумага</div>
-        </div>
-
-        <div class="video-card">
-            <video controls>
-                <source src="scratch 0.1.webm" type="video/webm">
-            </video>
-            <div class="video-title">Анимация: Кот в космосе</div>
-        </div>
-
-        <div class="video-card">
-            <video controls>
-                <source src="scratch 0.2.webm" type="video/webm">
-            </video>
-            <div class="video-title">Викторина: Угадай фрукт</div>
-        </div>
-
-        <div class="video-card">
-            <video controls>
-                <source src="scratch 0.3.webm" type="video/webm">
-            </video>
-            <div class="video-title">Симулятор: Гонки на машине</div>
-        </div>
-
-        <div class="video-card">
-            <video controls>
-                <source src="Scratch 0.6.webm" type="video/webm">
-            </video>
-            <div class="video-title">Обучающая игра: Сортировка по цвету</div>
-        </div>
+    <div class="card">
+        <video controls>
+            <source src="scratch 0.2.webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Scratch 0.2</div>
     </div>
 
-    <footer>
-        © 2024 Рахматилдаева Нуркыз. Все проекты выполнены на платформе Scratch.
-    </footer>
+    <div class="card">
+        <video controls>
+            <source src="scratch 0.3.webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Scratch 0.3</div>
+    </div>
+
+    <div class="card">
+        <video controls>
+            <source src="scratch 0.5.webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Почтовый робот (0.5)</div>
+    </div>
+
+    <div class="card">
+        <video controls>
+            <source src="Scratch 0.6.webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Сортировка (0.6)</div>
+    </div>
+
+    <div class="card">
+        <video controls>
+            <source src="scratch 09.webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Животные (09)</div>
+    </div>
+
+    <div class="card">
+        <video controls>
+            <source src="scratch 09 (2).webm" type="video/webm">
+        </video>
+        <div class="card-title">Проект: Камень-ножницы-бумага</div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Портфолио Нуркыз - Создано с помощью Scratch
+</footer>
 
 </body>
 </html>
-<div class="contacts">
-  <p>Телефон: <a href="tel:+996558240117">0558240117</a></p>
-  <p>Telegram: <a href="https://t.me/nurka" target="_blank">@nurka</a></p>
-  <p>Email: <a href="mailto:rahmatildaevan@gmail.com">rahmatildaevan@gmail.com</a></p>
-</div>
