@@ -3,153 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои роботы - Рахматилдаева Нуркыз</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Мои Роботы - Нуркыз</title>
     <style>
         :root {
-            --primary-color: #6200ea;
-            --accent-color: #03dac6;
-            --bg-color: #f5f5f7;
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg: #0f0c29;
+            --text: #ffffff;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--text);
             margin: 0;
-            padding: 0;
-            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(135deg, #6200ea, #d500f9);
-            color: white;
-            padding: 50px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
         }
 
         h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        .student-info {
-            font-size: 1.5rem;
-            margin-top: 10px;
-            opacity: 0.9;
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
         .card:hover {
             transform: translateY(-10px);
-        }<div style="max-width: 500px; margin: 20px auto;">
-    <video width="100%" controls poster="превью-картинка.jpg">
-        <source src="scratch 08.webm" type="video/webm">
-        Ваш браузер не поддерживает встроенные видео. 
-        Вот <a href="scratch 08.webm">ссылка на видео</a> вместо этого.
-    </video>
-</div>
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.3);
+            border-color: var(--primary);
+        }
 
         video {
             width: 100%;
-            height: auto;
-            border-bottom: 3px solid var(--accent-color);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            background: #000;
         }
 
-        .card-title {
-            padding: 15px;
-            font-weight: bold;
-            color: #333;
+        .card h3 {
+            margin: 10px 0;
+            font-weight: 300;
+            color: var(--secondary);
         }
 
         footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: #333;
-            color: white;
+            margin-top: auto;
+            padding: 40px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Рахматилдаева Нуркыз</h1>
-    <div class="student-info">8 класс | Работы на Scratch</div>
-    <h2 style="margin-top: 20px;">Мои роботы</h2>
-</header>
+    <header>
+        <div class="subtitle">Рахматилдаева Нуркыз • 8 Класс</div>
+        <h1>🤖 МОИ РОБОТЫ</h1>
+        <p>Работы, созданные в среде Scratch</p>
+    </header>
 
-<div class="container">
-    <div class="card">
-        <video controls>
-            <source src="scratch 0.1.webm" type="video/webm">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <div class="card-title">Проект: Scratch 0.1</div>
+    <div class="grid">
+        <div class="card">
+            <video controls src="scratch.mp4"></video>
+            <h3>Главный Робот</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%2015.webm"></video>
+            <h3>Робот 1.5</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%200.1.webm"></video>
+            <h3>Проект 0.1</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%200.2.webm"></video>
+            <h3>Проект 0.2</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%200.3.webm"></video>
+            <h3>Проект 0.3</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="Scratch%200.6.webm"></video>
+            <h3>Проект 0.6</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%2008.webm"></video>
+            <h3>Проект 0.8</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%2009.webm"></video>
+            <h3>Проект 0.9</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch0%200.webm"></video>
+            <h3>Прототип 0.0</h3>
+        </div>
     </div>
 
-    <div class="card">
-        <video controls>
-            <source src="scratch 0.2.webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Scratch 0.2</div>
-    </div>
-
-    <div class="card">
-        <video controls>
-            <source src="scratch 0.3.webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Scratch 0.3</div>
-    </div>
-
-    <div class="card">
-        <video controls>
-            <source src="scratch 0.5.webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Почтовый робот (0.5)</div>
-    </div>
-
-    <div class="card">
-        <video controls>
-            <source src="Scratch 0.6.webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Сортировка (0.6)</div>
-    </div>
-
-    <div class="card">
-        <video controls>
-            <source src="scratch 09.webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Животные (09)</div>
-    </div>
-
-    <div class="card">
-        <video controls>
-            <source src="scratch 09 (2).webm" type="video/webm">
-        </video>
-        <div class="card-title">Проект: Камень-ножницы-бумага</div>
-    </div>
-</div>
-
-<footer>
-    &copy; 2026 Портфолио Нуркыз - Создано с помощью Scratch
-</footer>
+    <footer>
+        &copy; 2024 Сделано с ❤️ Нуркыз для школьного проекта по Scratch
+    </footer>
 
 </body>
 </html>
