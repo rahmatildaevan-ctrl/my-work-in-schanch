@@ -102,7 +102,7 @@
         .upload-btn {
             background: var(--primary);
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             border-radius: 10px;
             cursor: pointer;
             margin-bottom: 10px;
@@ -116,31 +116,41 @@
             background: var(--accent);
             color: #000;
             border: none;
-            padding: 10px;
+            padding: 10px 20px;
             border-radius: 10px;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.3s;
         }
 
+        .detect-btn:hover { opacity: 0.8; }
+
         #resultText {
-            font-size: 0.9rem;
-            margin-top: 10px;
+            font-size: 1rem;
+            margin-top: 15px;
             color: var(--accent);
+            min-height: 1.2em;
         }
 
         .contacts {
             margin-top: 40px;
+            padding: 20px;
             text-align: center;
-            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
         }
         
-        .contacts a { color: var(--secondary); text-decoration: none; }
+        .contacts p { margin: 5px 0; }
+        .contacts a { color: var(--secondary); text-decoration: none; font-weight: bold; }
 
         footer {
-            margin-top: auto;
-            padding: 40px;
+            margin-top: 30px;
+            padding: 20px;
             opacity: 0.7;
             font-size: 0.9rem;
+            text-align: center;
         }
 
         @keyframes fadeInDown {
@@ -226,8 +236,7 @@
     </footer>
 
     <script>
-        // ВСТАВЬ СВОЙ ТОКЕН НИЖЕ
-        const HF_TOKEN = "hf_ТВОЙ_ТОКЕН_ТУТ"; 
+        const HF_TOKEN = "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"; 
         const MODEL_URL = "https://api-inference.huggingface.co/models/keremberke/yolov8n-pokemon-classification";
 
         function showPreview(event) {
@@ -235,6 +244,7 @@
             if (file) {
                 const preview = document.getElementById('preview');
                 preview.src = URL.createObjectURL(file);
+                document.getElementById('resultText').innerText = "Фото готово к анализу";
             }
         }
 
@@ -247,12 +257,15 @@
                 return;
             }
 
-            resultDiv.innerText = "Анализирую Покедекса...";
+            resultDiv.innerText = "Ищу в базе Покедекса...";
             const file = fileInput.files[0];
 
             try {
                 const response = await fetch(MODEL_URL, {
-                    headers: { Authorization: `Bearer ${HF_TOKEN}` },
+                    headers: { 
+                        "Authorization": `Bearer ${HF_TOKEN}`,
+                        "Content-Type": "application/octet-stream"
+                    },
                     method: "POST",
                     body: file,
                 });
@@ -260,16 +273,16 @@
                 const result = await response.json();
 
                 if (result.error) {
-                    resultDiv.innerText = "Ошибка: Модель загружается, подождите 20 сек.";
-                } else if (result.length > 0) {
+                    resultDiv.innerText = "Модель просыпается... Подождите 15 секунд и нажмите еще раз.";
+                } else if (result && result.length > 0) {
                     const pokemon = result[0];
                     const chance = Math.round(pokemon.score * 100);
                     resultDiv.innerText = `Это ${pokemon.label.toUpperCase()} (${chance}%)`;
                 } else {
-                    resultDiv.innerText = "Не удалось распознать.";
+                    resultDiv.innerText = "Покемон не распознан.";
                 }
             } catch (error) {
-                resultDiv.innerText = "Ошибка соединения.";
+                resultDiv.innerText = "Ошибка соединения. Проверьте интернет.";
                 console.error(error);
             }
         }
