@@ -190,6 +190,11 @@
         </div>
 
         <div class="card">
+            <video controls src="ml4k-recording%20(7).webm"></video>
+            <h3>Запись ML4K</h3>
+        </div>
+
+        <div class="card">
             <video controls src="scratch%200.1.webm"></video>
             <h3>Проект 0.1</h3>
         </div>
@@ -202,6 +207,11 @@
         <div class="card">
             <video controls src="scratch%200.3.webm"></video>
             <h3>Проект 0.3</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%200.5.webm"></video>
+            <h3>Проект 0.5</h3>
         </div>
 
         <div class="card">
@@ -220,8 +230,18 @@
         </div>
 
         <div class="card">
+            <video controls src="scratch%2009%20(2).webm"></video>
+            <h3>Проект 0.9 (Дубль 2)</h3>
+        </div>
+
+        <div class="card">
             <video controls src="scratch0%200.webm"></video>
             <h3>Прототип 0.0</h3>
+        </div>
+
+        <div class="card">
+            <video controls src="scratch%20000.webm"></video>
+            <h3>Прототип 000</h3>
         </div>
     </div>
 
@@ -238,6 +258,9 @@
     <script>
         const HF_TOKEN = "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"; 
         const MODEL_URL = "https://api-inference.huggingface.co/models/keremberke/yolov8n-pokemon-classification";
+        
+        // CORS Прокси для обхода блокировки браузера
+        const CORS_PROXY = "https://corsproxy.io/?";
 
         function showPreview(event) {
             const file = event.target.files[0];
@@ -257,33 +280,36 @@
                 return;
             }
 
-            resultDiv.innerText = "Ищу в базе Покедекса...";
+            resultDiv.innerText = "Отправляю данные нейросети...";
             const file = fileInput.files[0];
 
             try {
-                const response = await fetch(MODEL_URL, {
+                // Добавляем прокси перед ссылкой на модель
+                const finalUrl = CORS_PROXY + encodeURIComponent(MODEL_URL);
+
+                const response = await fetch(finalUrl, {
+                    method: "POST",
                     headers: { 
                         "Authorization": `Bearer ${HF_TOKEN}`,
-                        "Content-Type": "application/octet-stream"
+                        "Content-Type": "application/octet-stream" 
                     },
-                    method: "POST",
                     body: file,
                 });
 
                 const result = await response.json();
 
                 if (result.error) {
-                    resultDiv.innerText = "Модель просыпается... Подождите 15 секунд и нажмите еще раз.";
-                } else if (result && result.length > 0) {
+                    resultDiv.innerText = "Модель просыпается... Подождите 15-20 секунд и нажмите еще раз.";
+                } else if (Array.isArray(result) && result.length > 0) {
                     const pokemon = result[0];
                     const chance = Math.round(pokemon.score * 100);
                     resultDiv.innerText = `Это ${pokemon.label.toUpperCase()} (${chance}%)`;
                 } else {
-                    resultDiv.innerText = "Покемон не распознан.";
+                    resultDiv.innerText = "Не удалось распознать покемона.";
                 }
             } catch (error) {
-                resultDiv.innerText = "Ошибка соединения. Проверьте интернет.";
-                console.error(error);
+                resultDiv.innerText = "Ошибка соединения. Проверьте интернет или прокси.";
+                console.error("Детали ошибки:", error);
             }
         }
     </script>
