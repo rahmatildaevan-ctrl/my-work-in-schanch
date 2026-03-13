@@ -259,9 +259,6 @@
         const HF_TOKEN = "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"; 
         const MODEL_URL = "https://api-inference.huggingface.co/models/keremberke/yolov8n-pokemon-classification";
         
-        // CORS Прокси для обхода блокировки браузера
-        const CORS_PROXY = "https://corsproxy.io/?";
-
         function showPreview(event) {
             const file = event.target.files[0];
             if (file) {
@@ -280,18 +277,16 @@
                 return;
             }
 
-            resultDiv.innerText = "Отправляю данные нейросети...";
+            resultDiv.innerText = "Отправляю данные нейросети напрямую...";
             const file = fileInput.files[0];
 
             try {
-                // Добавляем прокси перед ссылкой на модель
-                const finalUrl = CORS_PROXY + encodeURIComponent(MODEL_URL);
-
-                const response = await fetch(finalUrl, {
+                // Делаем прямой запрос (без прокси), используя только чистую ссылку MODEL_URL
+                const response = await fetch(MODEL_URL, {
                     method: "POST",
                     headers: { 
-                        "Authorization": `Bearer ${HF_TOKEN}`,
-                        "Content-Type": "application/octet-stream" 
+                        "Authorization": `Bearer ${HF_TOKEN}`
+                        // Content-Type убран специально! Браузер сам все правильно упакует.
                     },
                     body: file,
                 });
@@ -308,7 +303,7 @@
                     resultDiv.innerText = "Не удалось распознать покемона.";
                 }
             } catch (error) {
-                resultDiv.innerText = "Ошибка соединения. Проверьте интернет или прокси.";
+                resultDiv.innerText = "Ошибка соединения. Возможно, токен Hugging Face неактивен.";
                 console.error("Детали ошибки:", error);
             }
         }
