@@ -81,6 +81,7 @@
             border-radius: 15px;
             margin-bottom: 15px;
             background: #000;
+            cursor: pointer;
         }
 
         .card h3 {
@@ -89,15 +90,12 @@
             color: var(--secondary);
         }
 
-        /* Стили для детектора */
         .ai-section {
             background: rgba(108, 92, 231, 0.2) !important;
             border: 2px dashed var(--primary) !important;
         }
 
-        #imageInput {
-            display: none;
-        }
+        #imageInput { display: none; }
 
         .upload-btn {
             background: var(--primary);
@@ -123,8 +121,6 @@
             transition: 0.3s;
         }
 
-        .detect-btn:hover { opacity: 0.8; }
-
         #resultText {
             font-size: 1rem;
             margin-top: 15px;
@@ -142,7 +138,6 @@
             max-width: 400px;
         }
         
-        .contacts p { margin: 5px 0; }
         .contacts a { color: var(--secondary); text-decoration: none; font-weight: bold; }
 
         footer {
@@ -170,7 +165,7 @@
     <div class="grid">
         <div class="card ai-section">
             <div>
-                <img id="preview" class="preview-img" src="https://via.placeholder.com/300x200?text=Загрузи+Покемона" alt="Preview">
+                <img id="preview" class="preview-img" src="https://via.placeholder.com/300x200/0f0c29/ffffff?text=Загрузи+Покемона" alt="Preview">
                 <h3>AI Покедекс</h3>
                 <label for="imageInput" class="upload-btn">Выбрать фото</label>
                 <input type="file" id="imageInput" accept="image/*" onchange="showPreview(event)">
@@ -179,70 +174,19 @@
             <div id="resultText">Ожидание фото...</div>
         </div>
 
-        <div class="card">
-            <video controls src="scratch.mp4"></video>
-            <h3>Главный Робот</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%2015.webm"></video>
-            <h3>Робот 1.5</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="ml4k-recording%20(7).webm"></video>
-            <h3>Запись ML4K</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%200.1.webm"></video>
-            <h3>Проект 0.1</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%200.2.webm"></video>
-            <h3>Проект 0.2</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%200.3.webm"></video>
-            <h3>Проект 0.3</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%200.5.webm"></video>
-            <h3>Проект 0.5</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="Scratch%200.6.webm"></video>
-            <h3>Проект 0.6</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%2008.webm"></video>
-            <h3>Проект 0.8</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%2009.webm"></video>
-            <h3>Проект 0.9</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%2009%20(2).webm"></video>
-            <h3>Проект 0.9 (Дубль 2)</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch0%200.webm"></video>
-            <h3>Прототип 0.0</h3>
-        </div>
-
-        <div class="card">
-            <video controls src="scratch%20000.webm"></video>
-            <h3>Прототип 000</h3>
-        </div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch.mp4"></video><h3>Главный Робот</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%2015.webm"></video><h3>Робот 1.5</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="ml4k-recording%20(7).webm"></video><h3>Запись ML4K</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%200.1.webm"></video><h3>Проект 0.1</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%200.2.webm"></video><h3>Проект 0.2</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%200.3.webm"></video><h3>Проект 0.3</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%200.5.webm"></video><h3>Проект 0.5</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="Scratch%200.6.webm"></video><h3>Проект 0.6</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%2008.webm"></video><h3>Проект 0.8</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%2009.webm"></video><h3>Проект 0.9</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%2009%20(2).webm"></video><h3>Проект 0.9 (2)</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch0%200.webm"></video><h3>Прототип 0.0</h3></div>
+        <div class="card"><video muted loop preload="none" onmouseover="this.play()" onmouseout="this.pause()" src="scratch%20000.webm"></video><h3>Прототип 000</h3></div>
     </div>
 
     <div class="contacts">
@@ -251,14 +195,12 @@
         <p>Email: <a href="mailto:rahmatildaevan@gmail.com">rahmatildaevan@gmail.com</a></p>
     </div>
 
-    <footer>
-        &copy; 2024 Сделано с ❤️ Нуркыз для школьного проекта
-    </footer>
+    <footer>&copy; 2024 Сделано с ❤️ Нуркыз для школьного проекта</footer>
 
     <script>
         const HF_TOKEN = "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"; 
         const MODEL_URL = "https://api-inference.huggingface.co/models/keremberke/yolov8n-pokemon-classification";
-        
+
         function showPreview(event) {
             const file = event.target.files[0];
             if (file) {
@@ -277,34 +219,31 @@
                 return;
             }
 
-            resultDiv.innerText = "Отправляю данные нейросети напрямую...";
+            resultDiv.innerText = "Нейросеть думает...";
             const file = fileInput.files[0];
 
             try {
-                // Делаем прямой запрос (без прокси), используя только чистую ссылку MODEL_URL
+                // Прямой запрос без лишних заголовков, чтобы не злить CORS
                 const response = await fetch(MODEL_URL, {
                     method: "POST",
-                    headers: { 
-                        "Authorization": `Bearer ${HF_TOKEN}`
-                        // Content-Type убран специально! Браузер сам все правильно упакует.
-                    },
-                    body: file,
+                    headers: { "Authorization": `Bearer ${HF_TOKEN}` },
+                    body: file
                 });
 
                 const result = await response.json();
 
                 if (result.error) {
-                    resultDiv.innerText = "Модель просыпается... Подождите 15-20 секунд и нажмите еще раз.";
+                    resultDiv.innerText = "Модель просыпается... Подождите 15 сек. и нажмите еще раз.";
                 } else if (Array.isArray(result) && result.length > 0) {
                     const pokemon = result[0];
                     const chance = Math.round(pokemon.score * 100);
                     resultDiv.innerText = `Это ${pokemon.label.toUpperCase()} (${chance}%)`;
                 } else {
-                    resultDiv.innerText = "Не удалось распознать покемона.";
+                    resultDiv.innerText = "Покемон не найден.";
                 }
             } catch (error) {
-                resultDiv.innerText = "Ошибка соединения. Возможно, токен Hugging Face неактивен.";
-                console.error("Детали ошибки:", error);
+                resultDiv.innerText = "Ошибка. Проверьте интернет или токен.";
+                console.error(error);
             }
         }
     </script>
