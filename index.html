@@ -10,6 +10,7 @@
             --secondary: #a29bfe;
             --bg: #0f0c29;
             --text: #ffffff;
+            --accent: #fdcb6e;
         }
 
         body {
@@ -62,6 +63,9 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -70,8 +74,10 @@
             border-color: var(--primary);
         }
 
-        video {
+        video, .preview-img {
             width: 100%;
+            height: 200px;
+            object-fit: cover;
             border-radius: 15px;
             margin-bottom: 15px;
             background: #000;
@@ -82,6 +88,53 @@
             font-weight: 300;
             color: var(--secondary);
         }
+
+        /* Стили для детектора */
+        .ai-section {
+            background: rgba(108, 92, 231, 0.2) !important;
+            border: 2px dashed var(--primary) !important;
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        .upload-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .upload-btn:hover { background: var(--secondary); }
+
+        .detect-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #resultText {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: var(--accent);
+        }
+
+        .contacts {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        .contacts a { color: var(--secondary); text-decoration: none; }
 
         footer {
             margin-top: auto;
@@ -101,10 +154,21 @@
     <header>
         <div class="subtitle">Рахматилдаева Нуркыз • 8 Класс</div>
         <h1>🤖 МОИ РОБОТЫ</h1>
-        <p>Работы, созданные в среде Scratch</p>
+        <p>Работы в Scratch и Нейросеть-Покедекс</p>
     </header>
 
     <div class="grid">
+        <div class="card ai-section">
+            <div>
+                <img id="preview" class="preview-img" src="https://via.placeholder.com/300x200?text=Загрузи+Покемона" alt="Preview">
+                <h3>AI Покедекс</h3>
+                <label for="imageInput" class="upload-btn">Выбрать фото</label>
+                <input type="file" id="imageInput" accept="image/*" onchange="showPreview(event)">
+                <button class="detect-btn" onclick="identifyPokemon()">Распознать</button>
+            </div>
+            <div id="resultText">Ожидание фото...</div>
+        </div>
+
         <div class="card">
             <video controls src="scratch.mp4"></video>
             <h3>Главный Робот</h3>
@@ -151,19 +215,64 @@
         </div>
     </div>
 
+    <div class="contacts">
+        <p>Телефон: <a href="tel:+996558240117">0558240117</a></p>
+        <p>Telegram: <a href="https://t.me/nurka" target="_blank">@nurka</a></p>
+        <p>Email: <a href="mailto:rahmatildaevan@gmail.com">rahmatildaevan@gmail.com</a></p>
+    </div>
+
     <footer>
-        &copy; 2024 Сделано с ❤️ Нуркыз для школьного проекта по Scratch
+        &copy; 2024 Сделано с ❤️ Нуркыз для школьного проекта
     </footer>
 
-</body>
-</html>
+    <script>
+        // ВСТАВЬ СВОЙ ТОКЕН НИЖЕ
+        const HF_TOKEN = "hf_ТВОЙ_ТОКЕН_ТУТ"; 
+        const MODEL_URL = "https://api-inference.huggingface.co/models/keremberke/yolov8n-pokemon-classification";
 
+        function showPreview(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const preview = document.getElementById('preview');
+                preview.src = URL.createObjectURL(file);
+            }
+        }
+
+        async function identifyPokemon() {
+            const fileInput = document.getElementById('imageInput');
+            const resultDiv = document.getElementById('resultText');
+
+            if (fileInput.files.length === 0) {
+                alert("Пожалуйста, сначала выберите фото!");
+                return;
+            }
+
+            resultDiv.innerText = "Анализирую Покедекса...";
+            const file = fileInput.files[0];
+
+            try {
+                const response = await fetch(MODEL_URL, {
+                    headers: { Authorization: `Bearer ${HF_TOKEN}` },
+                    method: "POST",
+                    body: file,
+                });
+
+                const result = await response.json();
+
+                if (result.error) {
+                    resultDiv.innerText = "Ошибка: Модель загружается, подождите 20 сек.";
+                } else if (result.length > 0) {
+                    const pokemon = result[0];
+                    const chance = Math.round(pokemon.score * 100);
+                    resultDiv.innerText = `Это ${pokemon.label.toUpperCase()} (${chance}%)`;
+                } else {
+                    resultDiv.innerText = "Не удалось распознать.";
+                }
+            } catch (error) {
+                resultDiv.innerText = "Ошибка соединения.";
+                console.error(error);
+            }
+        }
+    </script>
 </body>
 </html>
-</body>
-</html>
-<div class="contacts">
-  <p>Телефон: <a href="tel:+996558240117">0558240117</a></p>
-  <p>Telegram: <a href="https://t.me/nurka" target="_blank">@nurka</a></p>
-  <p>Email: <a href="mailto:rahmatildaevan@gmail.com">rahmatildaevan@gmail.com</a></p>
-</div>
